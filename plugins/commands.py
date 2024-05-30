@@ -230,7 +230,24 @@ async def start(client, message):
                     return
             
             await msg.edit_caption(f_caption)
-            
+            g = await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file_id,
+                caption=f_caption,
+                protect_content=True if pre == 'filep' else False,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                     [
+                         InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
+                     ]
+                    ]
+                )
+            )
+            k = await msg.reply(f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>{AUTO_DELETE} mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
+            await asyncio.sleep(AUTO_DELETE_TIME)
+            await msg.delete()
+            await g.delete()
+            await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
             return
         except:
             pass
