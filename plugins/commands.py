@@ -206,7 +206,7 @@ async def start(client, message):
                          InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', callback_data=f'generate_stream_link:{file_id}')
                      ]
             ]
-            await client.send_cached_media(
+            msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
                 protect_content=True if pre == 'filep' else False,  
@@ -224,7 +224,7 @@ async def start(client, message):
                     return
             
             await msg.edit_caption(f_caption)
-            msg = await client.send_cached_media(
+            g = await client.send_cached_media(
                   chat_id=message.from_user.id,
                   file_id=file_id,
                   caption=f_caption,
