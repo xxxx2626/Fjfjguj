@@ -68,7 +68,8 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
-        await message.reply_text(
+        await message.reply_photo(
+            photo=random.choice(PICS),
             caption=script.START_TXT.format(message.from_user.mention, me2),
             reply_markup=reply_markup
         )
