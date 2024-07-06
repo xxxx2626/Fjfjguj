@@ -12,7 +12,7 @@ from plugins.users_api import get_user, update_user_info
 from plugins.database import get_file_details
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
-from config import Var, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, ADMINS
+from config import Var, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, ADMINS
 import re
 import json
 import base64
