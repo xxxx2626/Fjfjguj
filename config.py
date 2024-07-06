@@ -34,6 +34,8 @@ API_ID = int(environ.get("API_ID", "12380656"))
 API_HASH = environ.get("API_HASH", "d927c13beaaf5110f25c505b7c071273")
 ADMINS = int(environ.get("ADMINS", "5977931010"))
 
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002114619001 -1002114619001').split()] # give channel id with seperate space. Ex : ('-10073828 -102782829 -1007282828')
+
 # Database Information
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "mongodb+srv://aman991932:aman@cluster0.pzs0tdk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 CDB_NAME = environ.get("CDB_NAME", "Cluster0")
