@@ -66,8 +66,6 @@ async def delete_after_delay(message: Message, delay):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
-    client = bot
-    massage = update 
     if AUTH_CHANNEL:
         try:
             btn = await is_subscribed(client, message, AUTH_CHANNEL)
