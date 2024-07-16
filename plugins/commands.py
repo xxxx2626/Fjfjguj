@@ -86,8 +86,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
             ],[
-            InlineKeyboardButton('owner ', callback_data='owner_info'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
+            InlineKeyboardButton('👮 Oᴡɴᴇʀ ', callback_data='owner_info'),
+            InlineKeyboardButton('📺 Sᴜᴘᴘᴏʀᴛ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -108,8 +108,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
             ],[
-            InlineKeyboardButton('owner ', callback_data='owner_info'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
+            InlineKeyboardButton('👮 Oᴡɴᴇʀ ', callback_data='owner_info'),
+            InlineKeyboardButton('📺 Sᴜᴘᴘᴏʀᴛ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -266,7 +266,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = '@VJ_Botz  ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
+            title = '' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -278,7 +278,6 @@ async def start(client, message):
             await msg.edit_caption(f_caption)
             g = await msg.reply_text(
                 text=f"**👉 ʏᴏᴜʀ ɢᴇɴᴇʀᴀᴛᴇ ᴏɴʟɪɴᴇ ᴡᴀᴛᴄʜ ᴏʀ ғᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ ᴘʟᴇᴀsᴇ ᴄʜᴇᴄᴋ ᴏɴ ᴛʜɪs ʙᴜᴛᴛᴏɴ 👇**",
-                quote=True,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [
@@ -288,7 +287,7 @@ async def start(client, message):
                     ]
                 )
             )
-            k = await msg.reply(f"<b><u>⚠️ᴛʜɪs ғɪʟᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs\n\nᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜᴇ ғɪʟᴇ sᴏᴍᴇᴡʜᴇʀᴇ ʙᴇғᴏʀᴇ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ..</i></b>",quote=True)
+            k = await msg.reply(f"<b><u>⚠️ᴛʜɪs ғɪʟᴇ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs\n\nᴘʟᴇᴀsᴇ ғᴏʀᴡᴀʀᴅ ᴛʜᴇ ғɪʟᴇ sᴏᴍᴇᴡʜᴇʀᴇ ʙᴇғᴏʀᴇ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ..</i></b>")
             await asyncio.sleep(AUTO_DELETE_TIME)
             await msg.delete()
             await g.delete()
@@ -393,8 +392,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
             ],[
-            InlineKeyboardButton('owner ', callback_data='owner_info'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
+            InlineKeyboardButton('👮 Oᴡɴᴇʀ ', callback_data='owner_info'),
+            InlineKeyboardButton('📺 Sᴜᴘᴘᴏʀᴛ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -491,7 +490,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url="https://t.me/AV_UPLOAD_MOVIES")
         ],[
             InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url="https://t.me/AV_SUPPORT_GROUP"),
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇꜱ', url="https://t.me/AV_Botz")
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇꜱ', url="https://t.me/AV_BOTz_UPDATE")
         ],[
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')
         ]]
