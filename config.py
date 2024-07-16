@@ -34,7 +34,7 @@ API_ID = int(environ.get("API_ID", "12380656"))
 API_HASH = environ.get("API_HASH", "d927c13beaaf5110f25c505b7c071273")
 ADMINS = int(environ.get("ADMINS", "5977931010"))
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002114619001 -1002114619001').split()] # give channel id with seperate space. Ex : ('-10073828 -102782829 -1007282828')
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '').split()] # give channel id with seperate space. Ex : ('-10073828 -102782829 -1007282828')
 
 # Database Information
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "mongodb+srv://aman991932:aman@cluster0.pzs0tdk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
@@ -49,7 +49,7 @@ DB_NAME = environ.get("DB_NAME", "Cluster0")
 # Bot Information
 BOT_TOKEN = environ.get("BOT_TOKEN", "7013287543:AAFf7rL_blxdKtwH7fIltOaMWjlmrHIurvA")
 BOT_USERNAME = environ.get("BOT_USERNAME", "AV_F2S_BOT") # your bot username without @
-PICS = (environ.get('PICS', 'https://graph.org/file/82ef767ffebe3a948e476.jpg https://graph.org/file/82ef767ffebe3a948e476.jpg')).split() # Bot Start Picture
+PICS = (environ.get('PICS', 'https://graph.org/file/0f03f87859c0361863fed.jpg https://graph.org/file/0f03f87859c0361863fed.jpg')).split() # Bot Start Picture
 
 # Auto Delete Information
 AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
