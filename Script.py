@@ -18,7 +18,7 @@ class script(object):
     CAPTION = """<b>══════════════════
 📂 <i><a href="http://t.me/AV_MOVIE_HOUSE">{file_name}</a></i>
 ═══════════════════ 
-<blockquote><b> Size ⚙️: {file_size}</b></blockquote>
+Size ⚙️: {file_size}
 ╔══════════════════╗
    <a href='http://t.me/AV_UPLOAD_MOVIES'>🔱 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 🔱</a></b>
 ╚══════════════════╝</b>""" 
@@ -54,7 +54,7 @@ Cᴜʀʀᴇɴᴛ Sʜᴏʀᴛᴇɴᴇʀ API:</b> `{shortener_api}`"""
 # Ask Doubt on telegram @KingVJ01
 
     ABOUT_TXT = """<b>╭────[ AV Aᴜᴛᴏ Bᴏᴛ ]────⍟
-├⍟ ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/{}>{}</a>
+├⍟ ᴍʏ ɴᴀᴍᴇ : {}
 ├⍟ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/AV_OWNER_BOT'>ᴀᴠ ᴏᴡɴᴇʀ</a>
 ├⍟ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href=http://t.me/AV_botz_update>ᴀᴠ ʙᴏᴛᴢ ᴜᴘᴅᴀᴛᴇ</a>
 ├⍟ ʟɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>ᴘʏʀᴏɢʀᴀᴍ</a> 
@@ -65,7 +65,7 @@ Cᴜʀʀᴇɴᴛ Sʜᴏʀᴛᴇɴᴇʀ API:</b> `{shortener_api}`"""
 ╰───────────────⍟</b>"""
 
     CABOUT_TXT = """<b>╭────[ AV Aᴜᴛᴏ Bᴏᴛ ]────⍟
-├⍟ ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/{}>{}</a>
+├⍟ ᴍʏ ɴᴀᴍᴇ : {}
 ├⍟ ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/AV_OWNER_BOT'>ᴀᴠ ᴏᴡɴᴇʀ</a>
 ├⍟ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ : <a href=http://t.me/AV_botz_update>ᴀᴠ ʙᴏᴛᴢ ᴜᴘᴅᴀᴛᴇ</a>
 ├⍟ ʟɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>ᴘʏʀᴏɢʀᴀᴍ</a> 
@@ -138,6 +138,3 @@ Nᴀᴍᴇ - {}</b>
 🌐 Tɪᴍᴇᴢᴏɴᴇ : <code>Asia/Kolkata</code>
 🛠️ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: <code>v2.7.1 [ Sᴛᴀʙʟᴇ ]</code></b>"""
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
