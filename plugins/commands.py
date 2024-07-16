@@ -5,7 +5,7 @@ import asyncio
 from validators import domain
 from Script import script
 from plugins.dbusers import db
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from pyrogram.errors import *
 from pyrogram import Client, filters, enums
 from plugins.users_api import get_user, update_user_info
@@ -84,12 +84,10 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
-            ],[
-            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
-            ],[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
+            ],[
+            InlineKeyboardButton('owner ', callback_data='owner_info'),
+            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -108,12 +106,10 @@ async def start(client, message):
 
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
-            ],[
-            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
-            ],[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
+            ],[
+            InlineKeyboardButton('owner ', callback_data='owner_info'),
+            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
@@ -395,17 +391,14 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('💝 sᴜʙsᴄʀɪʙᴇ ᴍʏ ʏᴏᴜᴛᴜʙᴇ ᴄʜᴀɴɴᴇʟ', url='https://youtube.com/@Tech_VJ')
-            ],[
-            InlineKeyboardButton('🔍 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vj_bot_disscussion'),
-            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vj_botz')
-            ],[
             InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
+            ],[
+            InlineKeyboardButton('owner ', callback_data='owner_info'),
+            InlineKeyboardButton('🤖 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', callback_data='group_info')
             ],[
             InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
-        
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -461,6 +454,59 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )  
 
+    elif query.data == "owner_info":
+       btn = [[
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="start"),
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", user_id=int(5977931010))
+       ]]
+       await client.edit_message_media(
+           query.message.chat.id, 
+           query.message.id, 
+           InputMediaPhoto("https://graph.org/file/ba90cca85a5f2631f1139.jpg")
+       )
+       reply_markup = InlineKeyboardMarkup(btn)
+       await query.message.edit_text(
+           text="⋘ Pʟᴇᴀsᴇ Wᴀɪᴛ ⋙"
+       )
+       await asyncio.sleep(0.5)
+       await query.message.edit_text(
+           text="⋘ Lᴏᴀᴅɪɴɢ Dᴀᴛᴀ ⋙"
+       )
+       await asyncio.sleep(0.4)
+       await query.message.edit_text(
+           text="⋘ Cᴏᴍᴘʟᴇᴛᴇ! ⋙"
+       )
+       reply_markup = InlineKeyboardMarkup(btn)
+       await query.message.edit_text(
+           text=(script.OWNER_INFO),
+           reply_markup=reply_markup,
+           parse_mode=enums.ParseMode.HTML
+       )
+
+    elif query.data == "group_info":
+        buttons = [[
+            InlineKeyboardButton('ꜱᴜʙꜱᴄʀɪʙᴇ  ᴍʏ  ʏᴛ  ᴄʜᴀɴɴᴇʟ', url="https://youtube.com/@avbotx"),
+        ],[
+            InlineKeyboardButton('ɢʀᴏᴜᴘ', url="https://t.me/+X3uoMkIHhco1YTY1"),
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url="https://t.me/AV_UPLOAD_MOVIES")
+        ],[
+            InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url="https://t.me/AV_SUPPORT_GROUP"),
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇꜱ', url="https://t.me/AV_Botz")
+        ],[
+            InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='start')
+        ]]
+        
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.GROUP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
         
     elif query.data.startswith("generate_stream_link"):
         _, file_id = query.data.split(":")
@@ -495,7 +541,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=stream),
             InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
             ],[
-            InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
+            InlineKeyboardButton("• ᴡᴀᴛᴄʜ ɪɴ ᴡᴇʙ ᴀᴘᴘ •", web_app=WebAppInfo(url=stream))
             ]]
             await query.edit_message_reply_markup(
                 reply_markup=InlineKeyboardMarkup(btn)
