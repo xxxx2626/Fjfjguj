@@ -34,7 +34,7 @@ API_ID = int(environ.get("API_ID", "12380656"))
 API_HASH = environ.get("API_HASH", "d927c13beaaf5110f25c505b7c071273")
 ADMINS = int(environ.get("ADMINS", "5977931010"))
 
-AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '').split()] # give channel id with seperate space. Ex : ('-10073828 -102782829 -1007282828')
+AUTH_CHANNEL = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('AUTH_CHANNEL', '-1002012150170 -1002102037760').split()] # give channel id with seperate space. Ex : ('-10073828 -102782829 -1007282828')
 
 # Database Information
 CLONE_DB_URI = environ.get("CLONE_DB_URI", "mongodb+srv://aman991932:aman@cluster0.pzs0tdk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
@@ -56,6 +56,7 @@ AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
 AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "18000")) # Time in Seconds
 
 # Channel Information
+BIN_CHANNEL = int(getenv("BIN_CHANNEL", "-1001973960964"))
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002110971750"))
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '-1001681707179')).split()]
 
