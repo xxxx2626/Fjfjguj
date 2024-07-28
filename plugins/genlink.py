@@ -18,6 +18,13 @@ import logging
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 # Ask Doubt on telegram @KingVJ01
 
+async def allowed(_, __, message):
+    if FILE_STORE_CHANNEL:
+        return True
+    if message.from_user and message.from_user.id in ADMINS:
+        return True
+    return False
+    
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
