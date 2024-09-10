@@ -55,7 +55,7 @@ PICS = (environ.get('PICS', 'https://graph.org/file/0f03f87859c0361863fed.jpg ht
 AUTO_DELETE = int(environ.get("AUTO_DELETE", "30")) # Time in Minutes
 AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "18000")) # Time in Seconds
 
-URL = environ.get('URL', 'https://wooden-iguana-botssthe-f62fc1d9.koyeb.app')
+URLS = environ.get('URLS', 'https://wooden-iguana-botssthe-f62fc1d9.koyeb.app')
 # Channel Information
 BIN_CHANNEL = int(getenv("BIN_CHANNEL", "-1001973960964"))
 LOG_CHANNEL = int(environ.get("LOG_CHANNEL", "-1002110971750"))
