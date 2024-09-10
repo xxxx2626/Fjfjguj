@@ -58,6 +58,23 @@ class Database:
 
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
-
+    async def set_stream_link(self,link):
+        await self.stream_link.update_one({} , {'$set': {'link': link}} , upsert=True)
+    async def get_stream_link(self):
+        link = await self.stream_link.find_one({})
+        if link is not None:
+            return link.get("link")
+        else:
+            return None
+    async def del_stream_link(self):
+        try: 
+            isDeleted = await self.stream_link.delete_one({})
+            if isDeleted.deleted_count > 0:
+                return True
+            else:
+                return False
+        except Exception as e:
+            print(f"Got err in db set : {e}")
+            return False
 
 db = Database(DATABASE_URI, DATABASE_NAME)
