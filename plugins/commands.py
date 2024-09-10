@@ -9,10 +9,10 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInf
 from pyrogram.errors import *
 from pyrogram import Client, filters, enums
 from plugins.users_api import get_user, update_user_info
-from plugins.database import get_file_details, get_stream_link
+from plugins.database import get_file_details
 from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery, InputMediaPhoto
-from config import Var, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, ADMINS, BIN_CHANNEL
+from config import Var, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, AUTO_DELETE_TIME, AUTO_DELETE, ADMINS, BIN_CHANNEL, URLS
 import re
 import json
 import base64
@@ -554,12 +554,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("stream"):
         user_id = query.from_user.id
         file_id = query.data.split('#', 1)[1]
-        STREAM_LINK = await get_stream_link()
+        STREAM_LINK = await db.get_stream_link()
         AKS = await client.send_cached_media(
             chat_id=BIN_CHANNEL,
             file_id=file_id)
-        online = f"{URLA}/watch/{AKS.id}?hash={get_hash(AKS)}"
-        download = f"{URLA}/{AKS.id}?hash={get_hash(AKS)}"
+        online = f"{STREAM_LINK if STREAM_LINK else URLS}/watch/{AKS.id}?hash={get_hash(AKS)}"
+        download = f"{STREAM_LINK if STREAM_LINK else URLS}/{AKS.id}?hash={get_hash(AKS)}"
         btn= [[
             InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
             InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
@@ -569,6 +569,5 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(btn)
         )
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
+
+
