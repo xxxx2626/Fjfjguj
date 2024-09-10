@@ -558,8 +558,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         AKS = await client.send_cached_media(
             chat_id=BIN_CHANNEL,
             file_id=file_id)
-        online = f"{STREAM_LINK if STREAM_LINK else URL}/watch/{AKS.id}?hash={get_hash(AKS)}"
-        download = f"{STREAM_LINK if STREAM_LINK else URL}/{AKS.id}?hash={get_hash(AKS)}"
+        online = f"{URLA}/watch/{AKS.id}?hash={get_hash(AKS)}"
+        download = f"{URLA}/{AKS.id}?hash={get_hash(AKS)}"
         btn= [[
             InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ", url=online),
             InlineKeyboardButton("ꜰᴀsᴛ ᴅᴏᴡɴʟᴏᴀᴅ", url=download)
