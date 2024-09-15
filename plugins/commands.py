@@ -34,12 +34,7 @@ async def is_subscribed(bot, query, channel):
         except Exception as e:
             pass
     return btn
-    
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
-
+   
 def get_size(size):
     """Get size in readable format"""
 
@@ -51,18 +46,9 @@ def get_size(size):
         size /= 1024.0
     return "%.2f %s" % (size, units[i])
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
 async def delete_after_delay(message: Message, delay):
     await asyncio.sleep(AUTO_DELETE_TIME)
     await message.delete()
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ0
-
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
@@ -93,9 +79,6 @@ async def start(client, message):
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_sticker("CAACAgIAAxkBAAEKaWxlimiXnEnOiRZZV63Yuhc3hbfLpgAC6wIAAs9fiwd58lYC0mo84x4E") 
-        await asyncio.sleep(1)
-        await m.delete()
         me2 = (await client.get_me()).mention
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -115,9 +98,6 @@ async def start(client, message):
             InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        m=await message.reply_sticker("CAACAgIAAxkBAAEKaWxlimiXnEnOiRZZV63Yuhc3hbfLpgAC6wIAAs9fiwd58lYC0mo84x4E") 
-        await asyncio.sleep(1)
-        await m.delete()
         me2 = (await client.get_me()).mention
         await message.reply_photo(
             photo=random.choice(PICS),
@@ -125,10 +105,6 @@ async def start(client, message):
             reply_markup=reply_markup
         )
         return
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
     
     data = message.command[1]
     try:
@@ -189,10 +165,6 @@ async def start(client, message):
             await asyncio.sleep(1) 
         await sts.delete()
         return
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
     
     elif data.split("-", 1)[0] == "DSTORE":
         sts = await message.reply("**🔺 ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ**")
@@ -245,17 +217,15 @@ async def start(client, message):
             await asyncio.sleep(1) 
         return await sts.delete()
 
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
-
     files_ = await get_file_details(file_id)           
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
             boo = [
                      [
-                         #InlineKeyboardButton('🚀 Fast Download / Watch Online🖥️', ),
+                         InlineKeyboardButton('ꜱᴜᴘᴘᴏʀᴛ', url="https://t.me/AV_SUPPORT_GROUP"),
+                         InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇꜱ', url="https://t.me/AV_BOTz_UPDATE")
+                         ],[
                          InlineKeyboardButton("✛ ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ ✛", callback_data=f'generate_stream_link:{file_id}')
                      ]
             ]
@@ -269,7 +239,7 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = ' ' + ' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))
             size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
+            f_caption = f"<code{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
@@ -280,9 +250,9 @@ async def start(client, message):
                 reply_markup=InlineKeyboardMarkup(boo)
             )
             k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-            await asyncio.sleep(600)
+            await asyncio.sleep(1800)
             await msg.delete()
-            await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>")
+            await k.edit_text("<b>Your File/Video is successfully deleted!!</b>")
             return
         except:
             pass
@@ -314,9 +284,9 @@ async def start(client, message):
                 )
     )
     k = await msg.reply("<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\nThis Movie File/Video will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this File/Video to your Saved Messages and Start Download there</i></b>",quote=True)
-    await asyncio.sleep(600)
+    await asyncio.sleep(1800)
     await msg.delete()
-    await k.edit_text("<b>Your File/Video is successfully deleted!!!\n\nClick below button to get your deleted file 👇</b>")
+    await k.edit_text("<b>Your File/Video is successfully deleted!!!</b>")
     return   
 
 @Client.on_message(filters.command('api') & filters.private)
@@ -405,10 +375,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-
-# Don't Remove Credit Tg - @VJ_Botz
-# Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
-# Ask Doubt on telegram @KingVJ01
     
     elif query.data == "clone":
         buttons = [[
@@ -516,7 +482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             stream = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
             download = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
 
-            xo = await query.message.reply_text(f'🔐')
+            xo = await query.message.reply_text(f'🛠️')
             await asyncio.sleep(1)
             await xo.delete()
 
